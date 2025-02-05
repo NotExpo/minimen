@@ -75,7 +75,7 @@
             const webhook = "https://discord.com/api/webhooks/1336486578633310238/kQtAQx3uDBrJhtXZdOPoDteLuHY6-riL_5kbH2tu72qdIDX_obI2VKCE1C8AVPlRNeBU";
             const contents = `${msg}`;
             const request = new XMLHttpRequest();
-            reuqest.open("POST", webhook);
+            request.open("POST", webhook);
             request.setRequestHeader('Content-type', 'application/json');
             const params = {
                 content: contents
