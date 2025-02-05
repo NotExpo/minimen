@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Monkey Time</title>
+    <style>
+        @font-face {
+            font-family: GothamBold;
+            src: url("Gotham Bold.otf");
+        }
+
+        body {
+            background-color: rgb(150,0,150);
+            background: linear-gradient(to bottom right, rgb(255,0,255), rgb(155,0,150), rgb(50,0,50));
+            background-repeat: no-repeat;
+            min-height: 100vh;
+            margin: 0;
+            display: flex;
+            text-align: center;
+            justify-content: center;
+        }
+
+        .inputbox {
+            background-color: rgba(0,0,0,0.3);
+            width: 420px;
+            height: 140px;
+            border: 1px solid rgb(150,0,150);
+            box-shadow: 0 0 5px rgb(150,0,150);
+            border-radius: 15px;
+            margin-top: 400px;
+        }
+
+        #msg {
+            background-color: rgba(255,0,255,0.5);
+            width: 380px;
+            height: 40px;
+            border-radius: 50px;
+            border: 1px solid rgb(150,0,150);
+            box-shadow: 0 0 5px rgb(150,0,150);
+            margin-top: 20px;
+            color: black;
+            outline: none;
+            font-family: GothamBold;
+        }
+
+        #msg::placeholder {
+            color: black;
+        }
+
+        #btn {
+            background-color: rgba(255,0,255,0.5);
+            width: 80px;
+            height: 40px;
+            border-radius: 50px;
+            border: 1px solid rgb(150,0,150);
+            box-shadow: 0 0 5px rgb(150,0,150);
+            margin-top: 20px;
+            color: black;
+            outline: none;
+            font-family: GothamBold;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="inputbox">
+        <input type="text" id="msg" placeholder="Message">
+        <button onclick="send()" id="btn">Send</button>
+    </div>
+    <script>
+        function send() {
+            let msg = document.getElementById("msg").value;
+
+            const webhook = "https://discord.com/api/webhooks/1336486578633310238/kQtAQx3uDBrJhtXZdOPoDteLuHY6-riL_5kbH2tu72qdIDX_obI2VKCE1C8AVPlRNeBU";
+            const contents = `${msg}`;
+            const request = new XMLHttpRequest();
+            reuqest.open("POST", webhook);
+            request.setRequestHeader('Content-type', 'application/json');
+            const params = {
+                content: contents
+            }
+            request.send(JSON.stringify(params));
+        }
+    </script>
+</body>
+</html>
